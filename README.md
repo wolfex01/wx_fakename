@@ -2,9 +2,10 @@
 
 **Wolfex | Fake Name System**
 **[Preview]:** 
-![image|160x109](upload://cSe3sObpOWwFm4K7ZpiJqS9ghRS.png)
+![unknown (19)](https://user-images.githubusercontent.com/91018450/158053099-37cf4839-774f-4d59-93ad-4ffe72c5730e.png)
+
 **[Optimized]:** 
-![image|160x109](upload://cSe3sObpOWwFm4K7ZpiJqS9ghRS.png)
+![unknown (18)](https://user-images.githubusercontent.com/91018450/158053103-70686092-fe97-41b4-94c4-4f4ff0de094a.png)
 
 **[Desc]:**
 You can change your name!
