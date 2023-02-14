@@ -1,17 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
+/* Általános CSS */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
 body,
 html {
   width: 100%;
   height: 100%;
 }
 
-* {
+body {
+  display: grid;
+  place-items: center;
+  visibility: hidden;
   font-family: 'Fredoka One', cursive;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  user-select: none;
 }
 
 textarea:focus,
@@ -19,14 +28,10 @@ input:focus {
   outline: none;
 }
 
-body {
-  display: grid;
-  place-items: center;
-  visibility: hidden;
-}
-
+/* Fakename osztály */
 .fakename {
   display: grid;
+  grid-template-columns: 1fr;
   width: 140px;
   height: 80px;
   border-radius: 1em;
@@ -54,4 +59,17 @@ body {
 .inthings {
   display: grid;
   place-items: center;
+}
+
+/* Egyéb */
+:focus {
+  outline: none;
+}
+
+::-moz-selection {
+  background: transparent;
+}
+
+::selection {
+  background: transparent;
 }
