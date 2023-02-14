@@ -7,8 +7,23 @@
 **[Optimized]:** 
 ![unknown (18)](https://user-images.githubusercontent.com/91018450/158053103-70686092-fe97-41b4-94c4-4f4ff0de094a.png)
 
-**[Desc]:**
-You can change your name!
-Default, you can open the menu with the /fakename command!
-You can change anything in the script!
-Only works with ESX Legacy!
+# WX FakeName
+
+## Leírás
+
+Ez a script lehetővé teszi, hogy megváltoztasd a karaktered nevét játék közben. Alapértelmezés szerint a menüt a `/fakename` parancs kiadásával tudod megnyitni. A script forráskódja bármilyen módon módosítható.
+
+**Figyelem:** Csak az ESX Legacy-t támogatja!
+
+## Használat
+
+1. Helyezd el a scriptet a `resources` mappádban.
+2. Add hozzá a `server.cfg` fájlhoz: `start wx_fakename`.
+
+## Szükséges függőségek
+
+- [es_extended (ESX Legacy)](https://github.com/esx-framework/es_extended/tree/legacy)
+
+## Licensz
+
+Ez a script szabadon felhasználható, bármilyen célra.
