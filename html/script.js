@@ -1,25 +1,38 @@
 const input = document.querySelector('.changed');
-window.addEventListener('message', event => {
-  var data = event.data;
+
+// eseménykezelő a message eseményhez
+window.addEventListener('message', (event) => {
+  const data = event.data;
+  const body = document.body.style;
+
   if (data.type === 'open') {
-    document.body.style.visibility = 'visible';
+    body.visibility = 'visible';
   } else if (data.type === 'close') {
-    document.body.style.visibility = 'hidden';
+    body.visibility = 'hidden';
   }
 });
 
+// a név változását kezelő funkció
 const changeName = () => {
-  console.log(`Beírt név: ${input.value}`);
-  $.post(
-    'http://wx_fakename/adat',
-    JSON.stringify({
-      name: input.value,
-    })
-  );
+  const name = input.value.trim();
+
+  if (name.length > 0) {
+    console.log(`Beírt név: ${name}`);
+
+    // AJAX kérés a szerver felé
+    fetch('http://wx_fakename/adat', {
+      method: 'POST',
+      body: JSON.stringify({ name }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+  }
 };
 
-window.onkeyup = function (data) {
-  if (event.key == 'Backspace') {
-    $.get('http://wx_fakename/closePanel');
+// eseménykezelő a billentyűzet gombnyomásokhoz
+window.onkeyup = function (event) {
+  if (event.key === 'Backspace') {
+    fetch('http://wx_fakename/closePanel');
   }
 };
