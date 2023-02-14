@@ -1,40 +1,39 @@
 ESX = nil
-Show = false
+local isUIOpen = false
 local fakeName = nil
 
+-- a funkció, amely inicializálja az ESX objektumot
 Citizen.CreateThread(function()
     while ESX == nil do
-        TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+        TriggerEvent('esx:getSharedObject', function(obj)
+            ESX = obj
+        end)
         Citizen.Wait(0)
     end
 end)
 
-
-local Show = function ()
-    Show = not Show
-    if (not Show) then
-        SendNUIMessage({
-            type = 'close'
-        })
-        SetNuiFocus(false,false)
-    elseif (Show) then
-        SendNUIMessage({
-            type = 'open'
-        })
-        SetNuiFocus(true,true)
-    end
+-- a funkció, amely megnyitja/zárja a felugró ablakot
+local toggleUI = function(show)
+    isUIOpen = show
+    SendNUIMessage({
+        type = show and 'open' or 'close'
+    })
+    SetNuiFocus(show, show)
 end
 
+-- parancskezelő, amely aktiválja a fake name megjelenítését
 RegisterCommand('fakename', function()
-    Show()
+    toggleUI(not isUIOpen)
 end)
 
-RegisterNUICallback('closePanel', function() 
-    Show()
+-- a callback, amely lezárja a felugró ablakot
+RegisterNUICallback('closePanel', function()
+    toggleUI(false)
 end)
 
-RegisterNUICallback("adat", function(data) 
+-- a callback, amely beállítja a fake nevet a szerveren
+RegisterNUICallback('adat', function(data)
     fakeName = data.name
-    TriggerServerEvent("newName", fakeName)
-    Show()
+    TriggerServerEvent('newName', fakeName)
+    toggleUI(false)
 end)
